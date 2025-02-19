@@ -24,7 +24,21 @@ router.get('/new', async (req, res) => {
     res.render('employees/new.ejs');
 });
 // DELETE
-
+router.delete('/:employeeId', async (req, res) => {
+    try {
+        // look up the user from req.session
+        const currentUser = await User.findById(req.session.user._id);
+        // use mongoose.deleteOne to delete the employee information using the id supplied from req.params
+        currentUser.employees.id(req.params.employeeId).deleteOne();
+        // save changes to the user in database
+        await currentUser.save();
+        // redirect back to the index page
+        res.redirect(`/users/${currentUser._id}/employees`);
+    } catch (error) {
+        console.log(error);
+        res.redirect('/');
+    }
+});
 // UPDATE
 
 // CREATE

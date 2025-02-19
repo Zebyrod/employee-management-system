@@ -16,6 +16,12 @@
         <h2>Job Title: <%= employee.position %></h2>
         <p>Current Salary: <%= employee.salary %></p>
         <p>Job Status: <%= employee.status %></p>
+        <br>
+        <br>
+        <!-- Use method-override to allow a delete route -->
+        <form action="/users/<%= user._id%>/employees/<%=employee._id %>?_method=DELETE" method="POST">
+            <button type="submit">Delete Employee</button>
+        </form>
     </div>
 </body>
 </html>
