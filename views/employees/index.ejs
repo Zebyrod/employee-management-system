@@ -1,0 +1,23 @@
+<!-- views/employees/index.ejs -->
+ <!DOCTYPE html>
+ <html lang="en">
+ <head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Your Employees</title>
+ </head>
+ <body>
+    <div class="nav">
+        <%- include('../partials/_navbar.ejs') %>
+        <a href="/users/<%= user._id%>/employees/new">Add New Employee</a>
+    </div>
+    <div class="main">
+        <h1>Below is all of your current staff:</h1>
+        <ul>
+            <% employees.forEach((employee)=>{ %>
+                <li><%= employee.name %>, <%= employee.position %></li>
+           <% }) %>
+        </ul>
+    </div>
+ </body>
+ </html>
