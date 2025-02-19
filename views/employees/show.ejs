@@ -1,1 +1,21 @@
 <!-- views/employees/show.ejs -->
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Viewing <%= employee.name %></title>
+</head>
+<body>
+    <div class="nav">
+        <%- include('../partials/_navbar.ejs') %>
+    </div>
+    <div class="main">
+        <h1>Employee Name: <%= employee.name %></h1>
+        <h2>Job Title: <%= employee.position %></h2>
+        <p>Current Salary: <%= employee.salary %></p>
+        <p>Job Status: <%= employee.status %></p>
+    </div>
+</body>
+</html>

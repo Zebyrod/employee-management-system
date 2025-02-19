@@ -15,7 +15,9 @@
         <h1>Below is all of your current staff:</h1>
         <ul>
             <% employees.forEach((employee)=>{ %>
-                <li><%= employee.name %>, <%= employee.position %></li>
+                <li>
+                    <a href="/users/<%= user._id %>/employees/<%= employee._id %>"><%= employee.name %>, <%= employee.position %></a>
+                </li>
            <% }) %>
         </ul>
     </div>

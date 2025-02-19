@@ -47,6 +47,20 @@ router.post('/', async (req, res) => {
 // EDIT
 
 // SHOW 
-
+router.get('/:employeeId', async (req, res) => {
+    try {
+        // look up the user from req.session
+        const currentUser = await User.findById(req.session.user._id);
+        // find the employee by the employeeId supplied from req.params
+        const employee = currentUser.employees.id(req.params.employeeId);
+        // render the show page, passing the employee data in the context object
+        res.render('employees/show.ejs', {
+            employee: employee,
+        });
+    } catch (error) {
+        console.log(error);
+        res.redirect('/');
+    }
+});
 
 module.exports = router;
