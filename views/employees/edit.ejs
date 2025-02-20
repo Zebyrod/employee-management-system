@@ -1,1 +1,52 @@
 <!-- views/employees/edit.ejs -->
+<!DOCTYPE html>
+<html lang="en">
+<head>
+   <meta charset="UTF-8">
+   <meta name="viewport" content="width=device-width, initial-scale=1.0">
+   <title>Edit <%= employee.name %> Information</title>
+</head>
+<body>
+   <div class="nav">
+       <%- include('../partials/_navbar.ejs') %>
+   </div>
+   <div class="main">
+       <h1>Editing <%= employee.name %>, <%= employee.position %> Information: </h1>
+       <!-- Using method-override to hit the put route -->
+       <form action="/users/<%= user._id %>/employees/ <%= employee._id %>?_method=PUT" method="POST">
+           <label for="name">Employee Name:</label>
+           <input type="text" name="name" id="name" value="<%= employee.name %>">
+           <br>
+           <br>
+           <label for="position">Job Title:</label>
+           <input type="text" name="position" id="position" value="<%= employee.position %>">
+           <br>
+           <br>
+           <label for="salary">Salary:</label>
+           <input type="number" name="salary" id="salary" value="<%= employee.salary %>">
+           <br>
+           <br>
+           <label for="status">Employment Status:</label>
+           <select name="status" id="status">
+               <option value="full-time" 
+               <%= employee.status === 'full-time' ? 'selected' : '' %>
+                >
+                Full Time
+            </option>
+               <option value="part-time"
+               <%= employee.status === 'part-time' ? 'selected' : '' %>
+               >
+                Part Time
+            </option>
+               <option value="per-diem"
+               <%= employee.status === 'per-diem' ? 'selected' : '' %>
+               >
+                Per Diem
+            </option>
+           </select>
+           <br>
+           <button type="submit">Update Information</button>
+       </form>
+   </div>
+</body>
+</html>

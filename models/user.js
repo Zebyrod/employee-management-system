@@ -3,6 +3,10 @@ const mongoose = require('mongoose');
 // Creating the employee schema 
 
 const employeeSchema = new mongoose.Schema({
+    _id: {
+        type: mongoose.Schema.Types.ObjectId,
+        auto: true, // Ensures Mongoose generates an ObjectId for each employee
+    },
     name: {
         type: String, 
         required: true

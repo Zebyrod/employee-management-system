@@ -18,6 +18,9 @@
         <p>Job Status: <%= employee.status %></p>
         <br>
         <br>
+        <a href="/users/<%= user._id %>/employees/<%= employee._id %>/edit">
+            Edit Employee Info
+        </a>
         <!-- Use method-override to allow a delete route -->
         <form action="/users/<%= user._id%>/employees/<%=employee._id %>?_method=DELETE" method="POST">
             <button type="submit">Delete Employee</button>

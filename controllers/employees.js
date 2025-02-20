@@ -1,6 +1,7 @@
 // DEPENDENCIES
 const express = require("express");
 const router = express.Router();
+const mongoose = require('mongoose');
 
 const User = require("../models/user.js");
 // ROUTES : /users/:userId/employees
@@ -40,7 +41,48 @@ router.delete('/:employeeId', async (req, res) => {
     }
 });
 // UPDATE
+// Got assistance from Winston... was having an error where my ObjectId had whitespace when generated and added a safety check to make sure the id is coverted into a string to match what is in the database
 
+router.put('/:employeeId', async (req, res) => {
+    try {
+        let employeeId = req.params.employeeId.trim(); // Ensure no leading/trailing spaces
+
+
+        // Ensure the ID is a valid MongoDB ObjectId
+        if (!mongoose.Types.ObjectId.isValid(employeeId)) {
+            console.log("❌ Invalid Employee ID format:", employeeId);
+            return res.redirect(`/users/${req.session.user._id}/employees`);
+        }
+
+        // Convert to ObjectId
+        const employeeIdObject = new mongoose.Types.ObjectId(employeeId);
+
+        const currentUser = await User.findById(req.session.user._id);
+        if (!currentUser) {
+            console.log("❌ User not found");
+            return res.redirect('/');
+        }
+
+
+        // Find the employee using .equals() for ObjectId comparison
+        const employee = currentUser.employees.find(emp => emp._id.equals(employeeIdObject));
+
+        if (!employee) {
+            console.log("❌ Employee ID not found:", employeeId);
+            return res.redirect(`/users/${currentUser._id}/employees`);
+        }
+
+        // Update employee
+        employee.set(req.body);
+        await currentUser.save();
+
+        res.redirect(`/users/${currentUser._id}/employees/${employeeId}`);
+    } catch (error) {
+        console.log("❌ Error:", error);
+        res.redirect('/');
+    }
+});
+ 
 // CREATE
 router.post('/', async (req, res) => {
     try {
@@ -59,6 +101,19 @@ router.post('/', async (req, res) => {
     }
 });
 // EDIT
+router.get('/:employeeId/edit', async (req, res) => {
+    try {
+        const currentUser = await User.findById(req.session.user._id);
+        const employee = currentUser.employees.id(req.params.employeeId);
+        res.render('employees/edit.ejs', {
+            employee: employee,
+        });
+    } catch (error) {
+        console.log(error);
+        res.redirect('/');
+    }
+});
+
 
 // SHOW 
 router.get('/:employeeId', async (req, res) => {
