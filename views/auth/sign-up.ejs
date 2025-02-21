@@ -1,31 +1,40 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Register</title>
-</head>
-<body> 
-  <h1>Register a new account with ZR Management!</h1>
-  <form action="/auth/sign-up" method="POST">
-    <label for="username">Username:</label>
-    <input type="text" name="username" id="username" required />
-    <br>
-    <br>
-    <label for="password">Password:</label>
-    <input type="password" name="password" id="password" required />
-    <br>
-    <br>
-    <label for="confirmPassword">Confirm Password:</label>
-    <input 
-      type="password"
-      name="confirmPassword"
-      id="confirmPassword"
-      required 
-    />
-    <br>
-    <br>
-    <button type="submit">Sign up</button>
-  </form>
-</body>
+	<head>
+		<meta charset="UTF-8" />
+		<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+		<link rel="stylesheet" href="/stylesheets/style.css" />
+		<title>Register</title>
+	</head>
+	<body>
+    <div class="nav" class="flex-container">
+      <%- include('../partials/_navbar.ejs') %>
+    </div>
+		<div class="aside" class="flex-container">
+			<h1>Account Registration</h1>
+		</div>
+		<div class="main" class="flex-container">
+			<h1>Register a new account with ZR Management!</h1>
+			<form action="/auth/sign-up" method="POST">
+				<label for="username">Username:</label>
+				<input type="text" name="username" id="username" required />
+				<br />
+				<br />
+				<label for="password">Password:</label>
+				<input type="password" name="password" id="password" required />
+				<br />
+				<br />
+				<label for="confirmPassword">Confirm Password:</label>
+				<input
+					type="password"
+					name="confirmPassword"
+					id="confirmPassword"
+					required
+				/>
+				<br />
+				<br />
+				<button type="submit">Sign up</button>
+			</form>
+		</div>
+	</body>
 </html>
