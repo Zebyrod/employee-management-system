@@ -5,18 +5,22 @@
 	<head>
 		<meta charset="UTF-8" />
 		<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+		<link rel="stylesheet" href="/stylesheets/style.css">
 		<title>ZR Management</title>
 	</head>
 	<body>
-		<div class="nav">
-      <%- include('./partials/_navbar.ejs') %>
-    </div>
-      
-		<div class="main">
+		<div class="nav" class="flex-container">
+			<%- include('./partials/_navbar.ejs') %>
+		  </div>
+		<div class="aside" class="flex-container">
+			<h1>Please Sign In</h1>
+		</div>
+		<div class="main" class="flex-container">
 			<h1>Welcome to ZR Management!</h1>
 			<p>
 				A safe and secure system for managing all of your employee information!
 			</p>
 		</div>
+	
 	</body>
 </html>

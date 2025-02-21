@@ -50,7 +50,7 @@ router.put('/:employeeId', async (req, res) => {
 
         // Ensure the ID is a valid MongoDB ObjectId
         if (!mongoose.Types.ObjectId.isValid(employeeId)) {
-            console.log("❌ Invalid Employee ID format:", employeeId);
+            console.log("Invalid Employee ID format:", employeeId);
             return res.redirect(`/users/${req.session.user._id}/employees`);
         }
 
@@ -59,7 +59,7 @@ router.put('/:employeeId', async (req, res) => {
 
         const currentUser = await User.findById(req.session.user._id);
         if (!currentUser) {
-            console.log("❌ User not found");
+            console.log("User not found");
             return res.redirect('/');
         }
 
@@ -68,7 +68,7 @@ router.put('/:employeeId', async (req, res) => {
         const employee = currentUser.employees.find(emp => emp._id.equals(employeeIdObject));
 
         if (!employee) {
-            console.log("❌ Employee ID not found:", employeeId);
+            console.log("Employee ID not found:", employeeId);
             return res.redirect(`/users/${currentUser._id}/employees`);
         }
 
@@ -78,7 +78,7 @@ router.put('/:employeeId', async (req, res) => {
 
         res.redirect(`/users/${currentUser._id}/employees/${employeeId}`);
     } catch (error) {
-        console.log("❌ Error:", error);
+        console.log("Error:", error);
         res.redirect('/');
     }
 });

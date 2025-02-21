@@ -1,6 +1,56 @@
 /* public/stylesheets/style.css */
+
 @import url('https://fonts.googleapis.com/css2?family=Poppins:wght@400;600;700&display=swap');
 
 body {
     font-family: 'Poppins', sans-serif;
+    display: grid;
+    background-color: #E3E4DB;
+    grid-template-rows: auto 1fr auto;
+    grid-template-columns: 1fr 2fr;
+    grid-template-areas: 
+    "aside nav nav"
+    "aside main main"
+    "aside main main";
+    font-size: 24px;
+    min-height: 100vh;
+    margin: 0;
+    padding: 0;
+}
+
+.flex-container {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+.nav {
+    grid-area: nav;
+    display: flex;
+    align-items: center;
+    justify-content: left;
+    background-color: #1995ad;
+    height: fit-content;
+    padding: 5px;
+    margin: 5px;
+    gap: 10px;
+}
+.main {
+    grid-area: main;
+}
+
+.aside {
+    background-color: #a1d6e2;
+    grid-area: aside;
+}
+
+a {
+    color: black;
+}
+
+button {
+    cursor: pointer;
+    border-radius: 3rem;
+    text-align: center;
+    height: fit-content;
+    width: fit-content;
 }

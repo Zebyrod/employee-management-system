@@ -29,6 +29,7 @@ app.use(methodOverride('_method'));
 // app.use(morgan('dev'));
 
 app.use(express.static(path.join(__dirname, 'public'))); // middleware for using css file 
+
 app.use(
   session({
     secret: process.env.SESSION_SECRET,

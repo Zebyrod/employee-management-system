@@ -4,16 +4,20 @@
 <head>
    <meta charset="UTF-8">
    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+   <link rel="stylesheet" href="/stylesheets/style.css">
    <title>Edit <%= employee.name %> Information</title>
 </head>
 <body>
-   <div class="nav">
-       <%- include('../partials/_navbar.ejs') %>
-   </div>
-   <div class="main">
-       <h1>Editing <%= employee.name %>, <%= employee.position %> Information: </h1>
-       <!-- Using method-override to hit the put route -->
-       <form action="/users/<%= user._id %>/employees/ <%= employee._id %>?_method=PUT" method="POST">
+    <div class="nav" class="flex-container">
+        <%- include('../partials/_navbar.ejs') %>
+        </div>
+    <div class="aside" class="flex-container">
+        <h1>Editing <%= employee.name %>'s Infomation!</h1>
+    </div>
+    <div class="main" class="flex-container">
+        <h1>Editing <%= employee.name %>, <%= employee.position %> Information: </h1>
+        <!-- Using method-override to hit the put route -->
+        <form action="/users/<%= user._id %>/employees/ <%= employee._id %>?_method=PUT" method="POST">
            <label for="name">Employee Name:</label>
            <input type="text" name="name" id="name" value="<%= employee.name %>">
            <br>
@@ -30,23 +34,24 @@
            <select name="status" id="status">
                <option value="full-time" 
                <%= employee.status === 'full-time' ? 'selected' : '' %>
-                >
-                Full Time
-            </option>
-               <option value="part-time"
-               <%= employee.status === 'part-time' ? 'selected' : '' %>
                >
-                Part Time
+               Full Time
             </option>
-               <option value="per-diem"
-               <%= employee.status === 'per-diem' ? 'selected' : '' %>
-               >
-                Per Diem
+            <option value="part-time"
+            <%= employee.status === 'part-time' ? 'selected' : '' %>
+            >
+            Part Time
+        </option>
+        <option value="per-diem"
+        <%= employee.status === 'per-diem' ? 'selected' : '' %>
+        >
+        Per Diem
             </option>
-           </select>
-           <br>
-           <button type="submit">Update Information</button>
-       </form>
-   </div>
+        </select>
+        <br>
+        <button type="submit">Update Information</button>
+    </form>
+    </div>
+    
 </body>
 </html>

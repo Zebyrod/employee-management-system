@@ -5,26 +5,34 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="/stylesheets/style.css">
     <title>Viewing <%= employee.name %></title>
 </head>
 <body>
-    <div class="nav">
+    <div class="nav" class="flex-container">
         <%- include('../partials/_navbar.ejs') %>
     </div>
-    <div class="main">
+    <div class="aside" class="flex-container">
+        <h1>Viewing <%= employee.name %></h1>
+    </div>
+    <div class="main" class="flex-container">
         <h1>Employee Name: <%= employee.name %></h1>
         <h2>Job Title: <%= employee.position %></h2>
-        <p>Current Salary: <%= employee.salary %></p>
+        <p>Current Salary: $<%= employee.salary %></p>
         <p>Job Status: <%= employee.status %></p>
         <br>
         <br>
-        <a href="/users/<%= user._id %>/employees/<%= employee._id %>/edit">
-            Edit Employee Info
+        <form action="/users/<%= user._id %>/employees/<%= employee._id %>/edit" method="GET">
+            <button type="submit">
+                Edit Employee Info
+            </button>
+        </form>
         </a>
         <!-- Use method-override to allow a delete route -->
         <form action="/users/<%= user._id%>/employees/<%=employee._id %>?_method=DELETE" method="POST">
             <button type="submit">Delete Employee</button>
         </form>
     </div>
+    
 </body>
 </html>
