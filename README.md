@@ -70,5 +70,4 @@ Pattern Attributes can be used within your forms to restrict undesired inputs fr
 
 * CSS Grid : 
 In this project I used both CSS flexbox and grid to get the design and layout of the page. By utilizing the grid-template-areas in my css I was able to easily achieve my desired layout. In order to do this I had to split my page up with 3 divs. I set each div with a class to match the part of the layout they would be in, then I assigned them to their respective areas in the template-areas to achieve the layout.
--https://www.w3schools.com/css/css_grid.asp
 -https://www.w3schools.com/cssref/pr_grid-template-areas.php
