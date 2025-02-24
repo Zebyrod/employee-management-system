@@ -31,10 +31,10 @@ I decided upon making an employee management system to showcase my ability to cr
 
 
 ## Features
-User Authentication
-Database storage
-Navigation bar 
-Buttons for submission of forms
+* User Authentication
+* Database storage
+* Navigation bar 
+* Buttons for submission of forms
 
 ## Wireframe Link
 * https://lucid.app/lucidspark/ff6f40da-129e-4c62-8743-cc40f35272cb/edit?beaconFlowId=8CB82655C56C22A3&invitationId=inv_a2a53da5-ffbc-44b8-b418-348d0ed30637&page=0_0#
