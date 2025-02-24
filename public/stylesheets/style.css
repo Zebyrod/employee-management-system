@@ -17,6 +17,10 @@ body {
     margin: 0;
     padding: 0;
 }
+img {
+    max-width: 85%;
+    max-height: 85%;
+}
 
 .flex-container {
     display: flex;

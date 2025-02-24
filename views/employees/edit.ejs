@@ -19,11 +19,11 @@
         <!-- Using method-override to hit the put route -->
         <form action="/users/<%= user._id %>/employees/ <%= employee._id %>?_method=PUT" method="POST">
            <label for="name">Employee Name:</label>
-           <input type="text" name="name" id="name" value="<%= employee.name %>">
+           <input type="text" name="name" id="name" pattern="[A-Za-z\s]+" title="No numbers or special characters allowed" value="<%= employee.name %>">
            <br>
            <br>
            <label for="position">Job Title:</label>
-           <input type="text" name="position" id="position" value="<%= employee.position %>">
+           <input type="text" name="position" id="position" pattern="[A-Za-z\s]+" title="No numbers or special characters allowed" value="<%= employee.position %>">
            <br>
            <br>
            <label for="salary">Salary:</label>
@@ -52,6 +52,6 @@
         <button type="submit">Update Information</button>
     </form>
     </div>
-    
+   
 </body>
 </html>

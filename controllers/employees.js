@@ -4,6 +4,7 @@ const router = express.Router();
 const mongoose = require('mongoose');
 
 const User = require("../models/user.js");
+
 // ROUTES : /users/:userId/employees
 
 // INDEX
@@ -132,4 +133,5 @@ router.get('/:employeeId', async (req, res) => {
     }
 });
 
+// Exports 
 module.exports = router;
