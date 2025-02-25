@@ -58,6 +58,8 @@ I decided upon making an employee management system to showcase my ability to cr
 * You can view the repository:
 [Github.com](https://github.com/Zebyrod/employee-management-system)
 * If unable to view please go live locally through VS Code
+* You can view the app deployed live here:
+[zr-management](https://zr-management-b0fa890755a0.herokuapp.com)
 
 ## <a name="Zebastian Rodriguez"></a>About The Author
 I am an aspiring software engineer. What started out as a curiosity quickly grew into a passion for coding and programming! I loved building basic webpages using my hobbies and interests as inspiration. This project is my second project and I think is a huge step up from my previous one! My previous project was a server based game which just conisted of HTML CSS and Javascript. In this project I implement much more technologies as well as the use of a mongoose database and ejs templates. I found this project super fun to work on as I had no clue prior to learing about these technologies what the backend side of code and ejs could do. After accomplishing this project I truly feel like I have grown so much as a programmer and problem solver especially compared to where I first began!
